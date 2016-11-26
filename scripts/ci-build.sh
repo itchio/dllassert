@@ -51,7 +51,7 @@ for CI_ARCH in i386 amd64; do
     cp dllassert.7z $BINARIES_DIR/$CI_VERSION
     cp -rf dllassert $BINARIES_DIR/$CI_VERSION
 
-    (cd $BINARIES_DIR/$CI_VERSION && sha1sum * > SHA1SUMS && sha256sum * > SHA256SUMS)
+    (cd $BINARIES_DIR/$CI_VERSION && sha1sum *.7z > SHA1SUMS && sha256sum *.7z > SHA256SUMS)
 
     if [ -n "$CI_BUILD_TAG" ]; then
     echo $CI_BUILD_TAG > $BINARIES_DIR/LATEST
