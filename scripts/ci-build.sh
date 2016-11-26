@@ -48,8 +48,8 @@ mv dllassert64.exe dllassert
 for CI_ARCH in i386 amd64; do
     BINARIES_DIR="binaries/$CI_OS-$CI_ARCH"
     mkdir -p $BINARIES_DIR/$CI_VERSION
-    cp isolate.7z $BINARIES_DIR/$CI_VERSION
-    cp isolate.exe $BINARIES_DIR/$CI_VERSION
+    cp dllassert.7z $BINARIES_DIR/$CI_VERSION
+    cp -rf dllassert $BINARIES_DIR/$CI_VERSION
 
     (cd $BINARIES_DIR/$CI_VERSION && sha1sum * > SHA1SUMS && sha256sum * > SHA256SUMS)
 
