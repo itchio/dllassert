@@ -1,0 +1,31 @@
+stages:
+  - test
+  - build
+  - deploy
+
+test:windows:
+  stage: test
+  tags:
+    - windows
+  script:
+    - scripts/ci-test.sh
+
+build:windows:
+  stage: build
+  tags:
+    - windows
+  script:
+    - scripts/ci-build.sh
+  artifacts:
+    paths:
+      - binaries
+
+deploy:
+  stage: deploy
+  tags:
+    - dropsy
+  script:
+    - scripts/ci-deploy.sh
+  dependencies:
+    - :build:windows
+    - :build:windows
