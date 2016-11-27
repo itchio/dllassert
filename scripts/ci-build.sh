@@ -45,7 +45,7 @@ mv dllassert64.exe dllassert
 #           - dllassert64.exe
 #         - SHA1SUMS
 
-for CI_ARCH in i386 amd64; do
+for CI_ARCH in 386 amd64; do
     BINARIES_DIR="binaries/$CI_OS-$CI_ARCH"
     mkdir -p $BINARIES_DIR/$CI_VERSION
     cp dllassert.7z $BINARIES_DIR/$CI_VERSION
