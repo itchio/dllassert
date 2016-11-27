@@ -12,10 +12,12 @@ all: 32 64
 
 32: export PATH:=/mingw32/bin:$(PATH)
 32:
-	gcc ${CFLAGS} ${DLLASSERT_CFLAGS} src/dllassert.c -o dllassert32.exe
+	windres resources/dllassert.rc -O coff dllassert32.res
+	gcc ${CFLAGS} ${DLLASSERT_CFLAGS} src/dllassert.c dllassert32.res -o dllassert32.exe
 	strip dllassert32.exe
 
 64: export PATH:=/mingw64/bin:$(PATH)
 64:
-	gcc ${CFLAGS} ${DLLASSERT_CFLAGS} src/dllassert.c -o dllassert64.exe
+	windres resources/dllassert.rc -O coff dllassert64.res
+	gcc ${CFLAGS} ${DLLASSERT_CFLAGS} src/dllassert.c dllassert64.res -o dllassert64.exe
 	strip dllassert64.exe
